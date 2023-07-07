@@ -6,7 +6,7 @@ import { HandySvg } from 'handy-svg';
 import icon from '../../images/Logo.svg';
 import log from '../../images/picture.png';
 import boy from '../../images/boy.png';
-import { useState } from 'react';
+
 import { fetchUsers } from 'redux/users/users-operations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
