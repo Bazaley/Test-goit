@@ -13,23 +13,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUsers } from 'redux/selectors';
 
 const Home = () => {
-  // const [followers, setFollowers] = useState(
-  //   JSON.parse(localStorage.getItem('followers') || 100500)
-  // );
-
   const users = useSelector(selectUsers);
   const dispatch = useDispatch();
-  console.log(users);
+
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(fetchUsers({ page: 1, limit: 3 }));
   }, [dispatch]);
 
-  // localStorage.setItem('followers', JSON.stringify(followers));
   return (
     <>
-      {users.map(({ tweets, followers }) => {
+      {users.map(({ id, tweets, followers }) => {
         return (
-          <Box>
+          <Box key={id}>
             <HandySvg src={icon} width="76px" height="22px" />
             <Image>
               <img src={log} alt="log" />
