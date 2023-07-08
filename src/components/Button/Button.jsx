@@ -1,32 +1,23 @@
-import { useState } from 'react';
 import { ButtonStyled } from './Button.styled';
+import { updateUser } from 'redux/users/users-operations';
+import { useDispatch } from 'react-redux';
 
-export const Button = ({ setFollowers, followers }) => {
-  const [follow, setFollow] = useState(
-    JSON.parse(localStorage.getItem('follow'))
-  );
-  localStorage.setItem('follow', JSON.stringify(follow));
+export const Button = ({ id, follow, followers }) => {
+  const dispatch = useDispatch();
+
+  const handlerClick = () => {
+    const newFollowers = follow ? followers - 1 : followers + 1;
+    dispatch(updateUser({ id, follow: follow ? false : true, newFollowers }));
+  };
+
   return (
     <>
       {follow ? (
-        <ButtonStyled
-          onClick={() => {
-            setFollow(!follow);
-            setFollowers(followers - 1);
-          }}
+        <ButtonStyled onClick={handlerClick} following>
           following
-        >
-          Following
         </ButtonStyled>
       ) : (
-        <ButtonStyled
-          onClick={() => {
-            setFollow(!follow);
-            setFollowers(followers + 1);
-          }}
-        >
-          Follow
-        </ButtonStyled>
+        <ButtonStyled onClick={handlerClick}>follow</ButtonStyled>
       )}
     </>
   );

@@ -26,6 +26,8 @@ ${normalize}
 body {
     font-family: "Montserrat",sans-serif;
     font-weight: 600;
+    background-color: #a488e3;
+    
 }
 
 
