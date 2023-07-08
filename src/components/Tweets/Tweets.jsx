@@ -51,7 +51,7 @@ const Tweets = () => {
   return (
     <>
       <Box>
-        <Back to={useLocation().state.from}>Go back</Back>
+        <Back to={useLocation()?.state?.from}>Go back</Back>
         <Dropdown setValue={setValue} value={value} />
       </Box>
 
