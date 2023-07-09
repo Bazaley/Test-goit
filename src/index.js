@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <React.StrictMode>
       <Provider store={store}>
-        <BrowserRouter basename="/tessdf/">
+        <BrowserRouter basename="/test-goit/">
           <App />
         </BrowserRouter>
       </Provider>

@@ -74,7 +74,6 @@ export const fetchUsersFollowing = createAsyncThunk(
         'https://64a5b75d00c3559aa9c01a2d.mockapi.io/api/users',
         { params: { follow: true } }
       );
-      console.log(data);
 
       return data;
     } catch (error) {
