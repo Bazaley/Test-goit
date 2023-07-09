@@ -6,14 +6,10 @@ import { Followers } from 'components/Followers/Followers';
 import icon from '../../images/Logo.svg';
 import log from '../../images/picture.png';
 import ellipse from '../../images/Ellipse.png';
-import { AvatarGenerator } from 'random-avatar-generator';
 import { TweetsStyled, Box, Image, BoxBoy } from './UsersList.styled';
 
 export const UsersList = () => {
   const users = useSelector(selectUsers);
-  const generator = new AvatarGenerator();
-
-  generator.generateRandomAvatar();
 
   return (
     <>
@@ -26,6 +22,7 @@ export const UsersList = () => {
             </Image>
             <BoxBoy>
               <img src={ellipse} alt="boy" />
+
               <img
                 style={{
                   position: 'absolute',
@@ -33,7 +30,7 @@ export const UsersList = () => {
                   top: '-4px',
                   left: '9px',
                 }}
-                src={generator.generateRandomAvatar()}
+                src={avatar}
                 alt="avatar"
               />
             </BoxBoy>
